@@ -6,26 +6,38 @@
 
 <body style="text-align:center; font-family:Arial; background:#ffe6f0; padding:50px;">
 
-<div style="background:white; padding:20px; border-radius:15px; display:inline-block;">
+<div id="box" style="background:white; padding:25px; border-radius:15px; display:inline-block;">
     
-    <h2>Ek chhota sa sawaal 💭</h2>
-    <p>Kya aap mujhe pasand karte hain? 😊</p>
+    <h2 id="question">Ek chhota sa sawaal 💭</h2>
+    <p id="text">Kya aap mujhe pasand karte hain? 😊</p>
 
-    <button onclick="checkAnswer('yes')">Haan ji 💕</button>
-    <button onclick="checkAnswer('no')">Nahi ji 😅</button>
+    <button onclick="answer('yes')">Haan ji 💕</button>
+    <button onclick="answer('no')">Nahi ji 😅</button>
 
     <p id="result"></p>
+    <br>
+    <button onclick="nextQuestion()">Next ➡️</button>
+
 </div>
 
 <script>
-function checkAnswer(ans) {
+let current = 0;
+
+let questions = [
+    "Kya aap mujhe pasand karte hain? 😊",
+    "Sach sach batayiye, thoda sa bhi? 😏",
+    "Agar main samne aa jaun toh smile aayegi? 😄",
+    "Ignore toh nahi karenge na? 🥺"
+];
+
+function answer(ans) {
     let result = document.getElementById("result");
 
     let yesReplies = [
         "Sach mein? 😊💖",
-        "Aap bahut pyaare hain 😏💕",
+        "Aap bahut pyaare hain 😏",
         "Mujhe pehle se pata tha 😌",
-        "Aapne dil jeet liya 💘"
+        "Dil jeet liya aapne 💘"
     ];
 
     let noReplies = [
@@ -36,12 +48,24 @@ function checkAnswer(ans) {
     ];
 
     if(ans === "yes") {
-        let random = Math.floor(Math.random() * yesReplies.length);
-        result.innerHTML = yesReplies[random];
+        let r = Math.floor(Math.random() * yesReplies.length);
+        result.innerHTML = yesReplies[r];
     } else {
-        let random = Math.floor(Math.random() * noReplies.length);
-        result.innerHTML = noReplies[random];
+        let r = Math.floor(Math.random() * noReplies.length);
+        result.innerHTML = noReplies[r];
     }
+}
+
+function nextQuestion() {
+    current++;
+    if(current >= questions.length) {
+        document.getElementById("text").innerHTML = "Bas itna hi 😊 Aapka din shubh ho 💕";
+        document.getElementById("result").innerHTML = "";
+        return;
+    }
+
+    document.getElementById("text").innerHTML = questions[current];
+    document.getElementById("result").innerHTML = "";
 }
 </script>
 
