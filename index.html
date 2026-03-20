@@ -2,43 +2,17 @@
 <html>
 <head>
     <title>Pyaari Si Quiz 💕</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #ffe6f0;
-            text-align: center;
-            padding: 50px;
-        }
-        .box {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            background: #ff66b2;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #ff3385;
-        }
-    </style>
 </head>
 
-<body>
+<body style="text-align:center; font-family:Arial; background:#ffe6f0; padding:50px;">
 
-<div class="box">
-    <h2>Ek simple sa sawaal 💭</h2>
-    <p>Tu mujhe pasand karta hai? 😏</p>
+<div style="background:white; padding:20px; border-radius:15px; display:inline-block;">
+    
+    <h2>Ek chhota sa sawaal 💭</h2>
+    <p>Kya aap mujhe pasand karte hain? 😊</p>
 
-    <button onclick="checkAnswer('yes')">Haan obviously 😍</button>
-    <button onclick="checkAnswer('no')">Nahi 😐</button>
+    <button onclick="checkAnswer('yes')">Haan ji 💕</button>
+    <button onclick="checkAnswer('no')">Nahi ji 😅</button>
 
     <p id="result"></p>
 </div>
@@ -47,10 +21,26 @@
 function checkAnswer(ans) {
     let result = document.getElementById("result");
 
+    let yesReplies = [
+        "Sach mein? 😊💖",
+        "Aap bahut pyaare hain 😏💕",
+        "Mujhe pehle se pata tha 😌",
+        "Aapne dil jeet liya 💘"
+    ];
+
+    let noReplies = [
+        "Ek baar phir sochiye na 😅",
+        "Jhooth bolna theek nahi hai 😏",
+        "Dil se jawab dijiye 😊",
+        "Sach sach batayiye 💭"
+    ];
+
     if(ans === "yes") {
-        result.innerHTML = "Mujhe pata tha 😏💕";
+        let random = Math.floor(Math.random() * yesReplies.length);
+        result.innerHTML = yesReplies[random];
     } else {
-        result.innerHTML = "Jhooth bol raha hai tu 😒";
+        let random = Math.floor(Math.random() * noReplies.length);
+        result.innerHTML = noReplies[random];
     }
 }
 </script>
