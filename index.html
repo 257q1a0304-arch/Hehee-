@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pyaari Si Quiz 💕</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #ffe6f0;
+            text-align: center;
+            padding: 50px;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #ff66b2;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff3385;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Ek simple sa sawaal 💭</h2>
+    <p>Tu mujhe pasand karta hai? 😏</p>
+
+    <button onclick="checkAnswer('yes')">Haan obviously 😍</button>
+    <button onclick="checkAnswer('no')">Nahi 😐</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function checkAnswer(ans) {
+    let result = document.getElementById("result");
+
+    if(ans === "yes") {
+        result.innerHTML = "Mujhe pata tha 😏💕";
+    } else {
+        result.innerHTML = "Jhooth bol raha hai tu 😒";
+    }
+}
+</script>
+
+</body>
+</html>
